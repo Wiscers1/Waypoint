@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Waypoint Food Orders</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { background-color: rgb(200,225,255); margin:0; font-family:sans-serif; }
+
+    .hero-banner {
+      position: relative;
+      width: 100vw;
+      height: 400px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .hero-banner img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+      filter: brightness(0.7);
+      z-index: 0;
+    }
+
+    .hero-gradient {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgb(200,225,255) 100%);
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 1rem;
+      color: black;
+    }
+
+    .hero-content h1 {
+      font-size: 2.5rem;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-content p {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero-content #headerText {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: #2563eb; /* blue header */
+    }
+
+    @media (min-width:768px){
+      .hero-content h1 { font-size: 4rem; }
+      .hero-content p { font-size: 1.5rem; }
+      .hero-content #headerText { font-size: 1.25rem; }
+    }
+
+    .schedule-container {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .schedule-item {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+      background-color: white;
+      padding: 10px;
+      border-radius: 12px;
+      transition: background-color 0.2s;
+    }
+
+    .schedule-item:hover { background-color: rgba(255,255,255,0.1); }
+
+    .schedule-item div { font-size: 0.9rem; }
+
+    .schedule-item .day { font-weight: 600; width: 80px; }
+    .schedule-item .date { color: #6b7280; font-size: 0.8rem; }
+    .schedule-item .role { flex:1; }
+    .schedule-item .role-title { font-size: 0.7rem; color:#6b7280; font-weight:600; margin-bottom:0.2rem; }
+  </style>
+</head>
+<body>
+
+<!-- Hero Banner -->
+<div class="hero-banner">
+  <img src="https://images.squarespace-cdn.com/content/v1/613ba46950f9ba5ff2215715/8a4b7751-c41a-4329-a81d-148081cb36c1/Sunset+side+view+summer+2022.jpg" alt="Sunset Background">
+  <div class="hero-gradient"></div>
+  <div class="hero-content">
+    <div id="headerText">Harvey Cedars Bible Conference</div>
+    <h1>Waypoint Food Orders</h1>
+    <p>Weekly Meal Schedule</p>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSerVJorD-TFEYwEdYfXzkjkNTe0MihEgZdv4q6FIxHbz9JxbA/viewform?usp=dialog" target="_blank" class="inline-block bg-blue-600 text-white px-6 py-3 rounded hover:bg-blue-700 transition">Go to Food Order Forms</a>
+  </div>
+</div>
+
+<!-- Schedule -->
+<div class="schedule-container" id="schedule">
+  <!-- Schedule items will be injected here -->
+</div>
+
+<script>
+  // --- Configuration: hardcode your schedule here ---
+  const scheduleData = [
+    { Day: "Monday", Date: "Jan 12", Cook: "Michael", Clean: "Alexa" },
+    { Day: "Tuesday", Date: "Jan 13", Cook: "TBD", Clean: "TBD" },
+    { Day: "Wednesday", Date: "Jan 14", Cook: "TBD", Clean: "TBD" },
+    { Day: "Thursday", Date: "Jan 15", Cook: "TBD", Clean: "TBD" },
+    { Day: "Friday", Date: "Jan 16", Cook: "Guest Dinner", Clean: "Not assigned" },
+    { Day: "Saturday", Date: "Jan 17", Cook: "Guest Dinner", Clean: "Not assigned" },
+    { Day: "Sunday", Date: "Jan 18", Cook: "Fend For Yourself", Clean: "Not assigned" }
+  ];
+
+  const scheduleEl = document.getElementById("schedule");
+
+  function renderSchedule() {
+    scheduleData.forEach(item => {
+      const row = document.createElement("div");
+      row.className = "schedule-item";
+      row.innerHTML = `
+        <div class="day">${item.Day}<div class="date">${item.Date}</div></div>
+        <div class="role">
+          <div class="role-title">COOK</div>
+          <div>${item.Cook}</div>
+        </div>
+        <div class="role">
+          <div class="role-title">CLEAN</div>
+          <div>${item.Clean}</div>
+        </div>
+      `;
+      scheduleEl.appendChild(row);
+    });
+  }
+
+  // Initial render
+  renderSchedule();
+</script>
+
+</body>
+</html>
