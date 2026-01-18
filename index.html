@@ -4,10 +4,50 @@
   <meta charset="UTF-8">
   <title>Waypoint Food Orders</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    body { background-color: rgb(200,225,255); margin:0; font-family:sans-serif; }
 
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    body {
+      background-color: rgb(200,225,255);
+      margin: 0;
+      font-family: sans-serif;
+    }
+
+.hero-content h1,
+.hero-content .subtitle {
+  text-shadow:
+    0 1px 2px rgba(255,255,255,0.6),
+    0 -1px 2px rgba(255,255,255,0.6),
+    1px 0 2px rgba(255,255,255,0.6),
+    -1px 0 2px rgba(255,255,255,0.6),
+    0 1px 2px rgba(0,0,0,0.25);
+}
+
+#headerText {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #2563eb; /* blue */
+  margin-bottom: 0.5rem;
+
+  /* subtle black outline for readability */
+  text-shadow:
+    -1px 0 rgba(0,0,0,0.4),
+     1px 0 rgba(0,0,0,0.4),
+     0 -1px rgba(0,0,0,0.4),
+     0  1px rgba(0,0,0,0.4);
+}
+
+
+
+
+.hero-content h1,
+.hero-content .subtitle {
+  color: #000000; /* black */
+}
+
+    /* HERO */
     .hero-banner {
       position: relative;
       width: 100vw;
@@ -37,7 +77,11 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgb(200,225,255) 100%);
+      background: linear-gradient(
+        to bottom,
+        rgba(255,255,255,0) 0%,
+        rgb(200,225,255) 100%
+      );
       z-index: 1;
     }
 
@@ -48,85 +92,121 @@
       color: black;
     }
 
-    .hero-content h1 {
-      font-size: 2.5rem;
-      font-weight: bold;
-      margin-bottom: 0.5rem;
-    }
-
-    .hero-content p {
-      font-size: 1.2rem;
-      margin-bottom: 1rem;
-    }
-
-    .hero-content #headerText {
+    #headerText {
       font-size: 1rem;
       font-weight: 600;
+      color: #2563eb;
       margin-bottom: 0.5rem;
-      color: #2563eb; /* blue header */
     }
 
-    @media (min-width:768px){
-      .hero-content h1 { font-size: 4rem; }
-      .hero-content p { font-size: 1.5rem; }
-      .hero-content #headerText { font-size: 1.25rem; }
+    h1 {
+      font-size: 2.8rem;
+      font-weight: 800;
+      margin-bottom: 0.5rem;
     }
 
+    .subtitle {
+      font-size: 1.25rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .verse-box {
+  background: rgba(255,255,255,0.65);
+  padding: 0.5rem 0.75rem;   /* optional: slightly smaller padding */
+  border-radius: 10px;
+  font-style: italic;
+  font-size: 0.85rem;       /* smaller font */
+  margin-bottom: 1.5rem;    /* optional: adjust spacing */
+}
+
+
+    @media (min-width: 768px) {
+      h1 { font-size: 3.6rem; }
+      .subtitle { font-size: 1.4rem; }
+      #headerText { font-size: 1.15rem; }
+    }
+
+    /* SCHEDULE */
     .schedule-container {
       max-width: 900px;
       margin: 2rem auto;
       padding: 0 1rem;
       display: flex;
       flex-direction: column;
-      gap: 1rem;
+      gap: 0.6rem;
     }
 
     .schedule-item {
       display: flex;
-      gap: 1.5rem;
+      gap: 1rem;
       align-items: center;
       background-color: white;
-      padding: 10px;
-      border-radius: 12px;
-      transition: background-color 0.2s;
+      padding: 0.5rem 0.75rem;
+      border-radius: 10px;
+      font-size: 0.85rem;
     }
 
-    .schedule-item:hover { background-color: rgba(255,255,255,0.1); }
+    .day {
+      font-weight: 600;
+      width: 75px;
+      line-height: 1.1;
+    }
 
-    .schedule-item div { font-size: 0.9rem; }
+    .date {
+      font-size: 0.7rem;
+      color: #6b7280;
+    }
 
-    .schedule-item .day { font-weight: 600; width: 80px; }
-    .schedule-item .date { color: #6b7280; font-size: 0.8rem; }
-    .schedule-item .role { flex:1; }
-    .schedule-item .role-title { font-size: 0.7rem; color:#6b7280; font-weight:600; margin-bottom:0.2rem; }
+    .role {
+      flex: 1;
+      line-height: 1.2;
+    }
+
+    .role-title {
+      font-size: 0.65rem;
+      color: #6b7280;
+      font-weight: 700;
+      margin-bottom: 0.15rem;
+      letter-spacing: 0.05em;
+    }
   </style>
 </head>
 <body>
 
-<!-- Hero Banner -->
+<!-- HERO -->
 <div class="hero-banner">
   <img src="https://images.squarespace-cdn.com/content/v1/613ba46950f9ba5ff2215715/8a4b7751-c41a-4329-a81d-148081cb36c1/Sunset+side+view+summer+2022.jpg" alt="Sunset Background">
   <div class="hero-gradient"></div>
+
   <div class="hero-content">
     <div id="headerText">Harvey Cedars Bible Conference</div>
     <h1>Waypoint Food Orders</h1>
-    <p>Weekly Meal Schedule</p>
-    <a href="https://docs.google.com/forms/d/e/1FAIpQLSerVJorD-TFEYwEdYfXzkjkNTe0MihEgZdv4q6FIxHbz9JxbA/viewform?usp=dialog" target="_blank" class="inline-block bg-blue-600 text-white px-6 py-3 rounded hover:bg-blue-700 transition">Go to Food Order Forms</a>
+    <div class="subtitle">Weekly Meal Schedule</div>
+
+    <div class="verse-box">
+      “Commit your work to the Lord, and your plans will be established.”  
+      <br>— Proverbs 16:3
+    </div>
+
+    <a
+      href="https://docs.google.com/forms/d/e/1FAIpQLSerVJorD-TFEYwEdYfXzkjkNTe0MihEgZdv4q6FIxHbz9JxbA/viewform?usp=dialog"
+      target="_blank"
+      class="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition"
+    >
+      Go to Food Order Forms
+    </a>
   </div>
 </div>
 
-<!-- Schedule -->
-<div class="schedule-container" id="schedule">
-  <!-- Schedule items will be injected here -->
-</div>
+<!-- SCHEDULE -->
+<div class="schedule-container" id="schedule"></div>
 
 <script>
-  // --- Configuration: hardcode your schedule here ---
   const scheduleData = [
-    { Day: "Monday", Date: "Jan 12", Cook: "Michael", Clean: "Alexa" },
-    { Day: "Tuesday", Date: "Jan 13", Cook: "TBD", Clean: "TBD" },
-    { Day: "Wednesday", Date: "Jan 14", Cook: "TBD", Clean: "TBD" },
-    { Day: "Thursday", Date: "Jan 15", Cook: "TBD", Clean: "TBD" },
+    { Day: "Monday", Date: "Jan 12", Cook: "Michael", Clean: "Alexa / Michael" },
+    { Day: "Tuesday", Date: "Jan 13", Cook: "Grace", Clean: "Noah / Richard" },
+    { Day: "Wednesday", Date: "Jan 14", Cook: "Abby", Clean: "Samantha / Cassie" },
+    { Day: "Thursday", Date: "Jan 15", Cook: "PIZZA NIGHT", Clean: "Michael" },
     { Day: "Friday", Date: "Jan 16", Cook: "Guest Dinner", Clean: "Not assigned" },
     { Day: "Saturday", Date: "Jan 17", Cook: "Guest Dinner", Clean: "Not assigned" },
     { Day: "Sunday", Date: "Jan 18", Cook: "Leftovers", Clean: "Not assigned" }
@@ -134,36 +214,26 @@
 
   const scheduleEl = document.getElementById("schedule");
 
-  function renderSchedule() {
-    scheduleData.forEach(item => {
-      const row = document.createElement("div");
-      row.className = "schedule-item";
-      row.innerHTML = `
-        <div class="day">${item.Day}<div class="date">${item.Date}</div></div>
-        <div class="role">
-          <div class="role-title">COOK</div>
-          <div>${item.Cook}</div>
-        </div>
-        <div class="role">
-          <div class="role-title">CLEAN</div>
-          <div>${item.Clean}</div>
-        </div>
-      `;
-      scheduleEl.appendChild(row);
-    });
-  }
-
-  // Initial render
-  renderSchedule();
+  scheduleData.forEach(item => {
+    const row = document.createElement("div");
+    row.className = "schedule-item";
+    row.innerHTML = `
+      <div class="day">
+        ${item.Day}
+        <div class="date">${item.Date}</div>
+      </div>
+      <div class="role">
+        <div class="role-title">COOK</div>
+        <div>${item.Cook}</div>
+      </div>
+      <div class="role">
+        <div class="role-title">CLEAN</div>
+        <div>${item.Clean}</div>
+      </div>
+    `;
+    scheduleEl.appendChild(row);
+  });
 </script>
 
 </body>
 </html>
-
-
-
-
-
-
-
-
