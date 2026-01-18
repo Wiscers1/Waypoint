@@ -25,21 +25,28 @@
     0 1px 2px rgba(0,0,0,0.25);
 }
 
-#headerText {
-  font-size: 1rem;
-  font-weight: 600;
-  color: #2563eb; /* blue */
-  margin-bottom: 0.5rem;
+.hero-content {
+  text-align: center;
+  max-width: 800px;
+  transform: translateY(-20px); /* move up */
+}
 
-  /* subtle black outline for readability */
+#headerText { margin-bottom: 0.25rem; }
+h1 { margin-bottom: 0.25rem; }
+
+#headerText {
+  font-size: 1.25rem;   /* was 1rem */
+  font-weight: 600;
+  color: #2563eb;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.03em;
+
   text-shadow:
     -1px 0 rgba(0,0,0,0.4),
      1px 0 rgba(0,0,0,0.4),
      0 -1px rgba(0,0,0,0.4),
      0  1px rgba(0,0,0,0.4);
 }
-
-
 
 
 .hero-content h1,
@@ -49,48 +56,44 @@
 
     /* HERO */
     .hero-banner {
-      position: relative;
-      width: 100vw;
-      height: 400px;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-    }
+  position: relative;
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-    .hero-banner img {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100%;
-      object-fit: cover;
-      object-position: center center;
-      filter: brightness(0.7);
-      z-index: 0;
-    }
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.7);
+  z-index: 0;
+}
 
-    .hero-gradient {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(
-        to bottom,
-        rgba(255,255,255,0) 0%,
-        rgb(200,225,255) 100%
-      );
-      z-index: 1;
-    }
+.hero-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(255,255,255,0) 0%,
+    rgb(200,225,255) 100%
+  );
+  z-index: 1;
+}
 
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      padding: 1rem;
-      color: black;
-    }
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 800px;
+  padding: 1rem;
+}
+
 
     #headerText {
       font-size: 1rem;
@@ -99,16 +102,15 @@
       margin-bottom: 0.5rem;
     }
 
-    h1 {
-      font-size: 2.8rem;
-      font-weight: 800;
-      margin-bottom: 0.5rem;
-    }
-
     .subtitle {
-      font-size: 1.25rem;
-      margin-bottom: 1.25rem;
-    }
+  font-size: 1.5rem;
+  margin-bottom: 0.1rem;
+}
+
+h1 {
+  margin-top: 0;
+}
+
 
     .verse-box {
   background: rgba(255,255,255,0.65);
@@ -146,6 +148,7 @@
       font-size: 0.85rem;
     }
 
+
     .day {
       font-weight: 600;
       width: 75px;
@@ -169,47 +172,74 @@
       margin-bottom: 0.15rem;
       letter-spacing: 0.05em;
     }
+
+    .hcbc-logo {
+  display: block;
+  margin: 0 auto 0.25rem auto; /* center + small space below */
+  width: 300px;                /* small default width */
+  max-width: 80%;
+  height: auto;
+}
+
+    @media (min-width: 768px) {
+  .hcbc-logo {
+    width: 220px;
+  }
+}
+
+
   </style>
 </head>
 <body>
 
 <!-- HERO -->
 <div class="hero-banner">
-  <img src="https://images.squarespace-cdn.com/content/v1/613ba46950f9ba5ff2215715/8a4b7751-c41a-4329-a81d-148081cb36c1/Sunset+side+view+summer+2022.jpg" alt="Sunset Background">
+  <img
+          src="https://images.squarespace-cdn.com/content/v1/613ba46950f9ba5ff2215715/8a4b7751-c41a-4329-a81d-148081cb36c1/Sunset+side+view+summer+2022.jpg"
+          alt="Sunset Background"
+          class="hero-bg"
+  />
+
   <div class="hero-gradient"></div>
 
   <div class="hero-content">
-    <div id="headerText">Harvey Cedars Bible Conference</div>
-    <h1>Waypoint Food Orders</h1>
+    <img
+            src="https://images.squarespace-cdn.com/content/v1/613ba46950f9ba5ff2215715/9ba63869-13bf-4744-96d3-e5175512a716/HCBCLogo-web.png"
+            alt="Harvey Cedars Bible Conference"
+            class="hcbc-logo"
+    />
+
     <div class="subtitle">Weekly Meal Schedule</div>
+    <h1>Waypoint Food Orders</h1>
 
     <div class="verse-box">
-      “Commit your work to the Lord, and your plans will be established.”  
+      “Commit your work to the Lord, and your plans will be established.”
       <br>— Proverbs 16:3
     </div>
 
     <a
-      href="https://docs.google.com/forms/d/e/1FAIpQLSerVJorD-TFEYwEdYfXzkjkNTe0MihEgZdv4q6FIxHbz9JxbA/viewform?usp=dialog"
-      target="_blank"
-      class="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition"
+            href="https://docs.google.com/forms/d/e/1FAIpQLSerVJorD-TFEYwEdYfXzkjkNTe0MihEgZdv4q6FIxHbz9JxbA/viewform?usp=dialog"
+            target="_blank"
+            class="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition"
     >
       Go to Food Order Forms
     </a>
   </div>
 </div>
 
+
 <!-- SCHEDULE -->
 <div class="schedule-container" id="schedule"></div>
 
 <script>
   const scheduleData = [
-    { Day: "Monday", Date: "Jan 12", Cook: "Michael", Clean: "Alexa / Michael" },
-    { Day: "Tuesday", Date: "Jan 13", Cook: "Grace", Clean: "Noah / Richard" },
-    { Day: "Wednesday", Date: "Jan 14", Cook: "Abby", Clean: "Samantha / Cassie" },
-    { Day: "Thursday", Date: "Jan 15", Cook: "PIZZA NIGHT", Clean: "Michael" },
-    { Day: "Friday", Date: "Jan 16", Cook: "Guest Dinner", Clean: "Not assigned" },
-    { Day: "Saturday", Date: "Jan 17", Cook: "Guest Dinner", Clean: "Not assigned" },
-    { Day: "Sunday", Date: "Jan 18", Cook: "Leftovers", Clean: "Not assigned" }
+    { Day: "Monday", Date: "Jan 19", Cook: "Michael", Clean: "Alexa / Michael" },
+    { Day: "Tuesday", Date: "Jan 20", Cook: "Grace", Clean: "Noah / Richard" },
+    { Day: "Wednesday", Date: "Jan 21", Cook: "Abby", Clean: "Samantha / Cassie" },
+    { Day: "Thursday", Date: "Jan 22", Cook: "PIZZA NIGHT", Clean: "Michael" },
+    { Day: "Friday", Date: "Jan 23", Cook: "Guest Dinner", Clean: "Not assigned" },
+    { Day: "Saturday", Date: "Jan 24", Cook: "Guest Dinner", Clean: "Not assigned" },
+    { Day: "Sunday", Date: "Jan 25", Cook: "Leftovers", Clean: "Not assigned" }
   ];
 
   const scheduleEl = document.getElementById("schedule");
